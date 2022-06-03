@@ -4,15 +4,13 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import javax.persistence.Entity;
-import javax.persistence.EntityListeners;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @EntityListeners(AuditingEntityListener.class)
+@PrimaryKeyJoinColumn(name = "id")
 @Getter
 @Setter
 public class GestionnaireDossier extends Utilisateur{
@@ -25,7 +23,7 @@ public class GestionnaireDossier extends Utilisateur{
     @ManyToMany
     List<ElementDemandable> elementDemandables = new ArrayList<>();
 
-    @ManyToMany(mappedBy = "gestionnaireDossier")
+    @ManyToMany(mappedBy = "gestionnaireDossiers")
     List<DemandeInscription> demandeInscriptions = new ArrayList<>();
 
 }

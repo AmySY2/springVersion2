@@ -14,7 +14,9 @@ import java.util.Date;
 @Getter
 public class Absence extends EvenementDePresence{
 
+
     private Date dateDebut;
+
     private Date dateFin;
 
     public Absence(Integer id, Date dateDeSaisie, Date dateEvaluation, String evaluation, Date dateDebut, Date dateFin) {

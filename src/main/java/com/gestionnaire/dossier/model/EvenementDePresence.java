@@ -41,9 +41,8 @@ public class EvenementDePresence {
     @MapsId("stagiaire_id")
     private Stagiaire stagiaire;
 
-    @OneToMany(mappedBy = "evementDePresence")
+    @OneToMany(mappedBy = "evenementDePresence")
     List<PieceJustificative> pieceJustifives = new ArrayList<>();
-
 
     @ManyToOne
     @MapsId("motif_id")

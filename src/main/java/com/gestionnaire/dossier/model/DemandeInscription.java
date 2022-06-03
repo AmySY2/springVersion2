@@ -20,12 +20,25 @@ public class DemandeInscription extends Utilisateur{
     @GeneratedValue(strategy = GenerationType.IDENTITY ) //id est autogénerer
     private Integer id;
 
+    @Temporal(TemporalType.DATE)
     private Date dateInscription;
 
     private String nationnalite;
 
     private String statusDossier;
 
+    public DemandeInscription(Integer id, Date dateInscription, String statusDossier) {
+        this.id = id;
+        this.dateInscription = dateInscription;
+        this.statusDossier = statusDossier;
+    }
+
+    public DemandeInscription(Integer id, Date dateInscription,String statusDossier, Formation formation) {
+        this.id = id;
+        this.dateInscription = dateInscription;
+        this.statusDossier = statusDossier;
+        this.formation = formation;
+    }
 
     @ManyToOne
     @MapsId("candidat_id")//Clé etranger

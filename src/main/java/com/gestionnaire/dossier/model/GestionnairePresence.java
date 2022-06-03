@@ -7,11 +7,13 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
 import javax.persistence.OneToMany;
+import javax.persistence.PrimaryKeyJoinColumn;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @EntityListeners(AuditingEntityListener.class) // générer les tables automatiquement
+@PrimaryKeyJoinColumn(name = "id")
 @Getter
 @Setter
 public class GestionnairePresence extends Utilisateur{

@@ -4,10 +4,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class HelloWorldIdController {
+public class AccueilController {
 
-    @GetMapping("/hello")
-    public String direBonjour() {
-        return "hello web service";
+    @GetMapping("/accueil")
+    public String hello(){
+        return "Serveur SPRING OK" ;
     }
 }

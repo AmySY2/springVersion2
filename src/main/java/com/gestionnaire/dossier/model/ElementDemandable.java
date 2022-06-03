@@ -37,6 +37,4 @@ public class ElementDemandable {
     @ManyToMany
     List<Formation> formations = new ArrayList<>();
 
-
-
 }

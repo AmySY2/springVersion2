@@ -25,6 +25,7 @@ public class PieceJustificative {
 
     private String Status;
 
+    @Temporal(TemporalType.DATE)
     private Date dateDepot;
 
     private String message;
@@ -39,15 +40,15 @@ public class PieceJustificative {
     }
 
     @ManyToOne
-    @MapsId("evenementDePresence_id")
-    private List<EvenementDePresence> evenementDePresence;
+    @JoinColumn(name = "evenementDePresence_id")
+    private EvenementDePresence evenementDePresence;
 
     @ManyToOne
-    @MapsId("gestionnairePresence_id")
+    @JoinColumn(name = "gestionnairePresence_id")
     private  GestionnairePresence gestionnairePresence;
 
     @ManyToOne
-    @MapsId("gestionnaireDossier_id")
+    @JoinColumn(name = "gestionnaireDossier_id")
     private GestionnaireDossier gestionnaireDossier;
 
 }

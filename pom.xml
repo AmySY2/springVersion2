@@ -15,14 +15,13 @@
 	<description>Gestion des évènement dans Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
+		<skipTest>false</skipTest>
 	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
 		</dependency>
-
-
 
 		<dependency>
 			<groupId>io.jsonwebtoken</groupId>
@@ -46,6 +45,8 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
+
+
 
 		<dependency>
 			<groupId>mysql</groupId>
@@ -76,20 +77,76 @@
 			<scope>test</scope>
 		</dependency>
 
+
+
 		<!--<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-spatial</artifactId>
-			<version>${hibernate.version}</version>
+			<version>5.6.8</version>
 		</dependency>-->
 	</dependencies>
 
+	<profiles>
+
+		<profile>
+			<id>prod</id>
+			<properties>
+				<skipTest>true</skipTest>
+				<secret-jwt>azerty123</secret-jwt>
+				<adresse-bdd>localhost</adresse-bdd>
+				<nom-bdd>datamns</nom-bdd>
+				<nom-utilisateur-bdd>root</nom-utilisateur-bdd>
+				<mot-de-passe-utilisateur-bdd>root</mot-de-passe-utilisateur-bdd>
+			</properties>
+		</profile>
+
+		<profile>
+<!--			<activation>-->
+<!--				<activeByDefault>true</activeByDefault>-->
+<!--			</activation>-->
+			<id>Local</id>
+			<properties>
+				<secret-jwt>aucun-token</secret-jwt>
+				<adresse-bdd>localhost</adresse-bdd>
+				<nom-bdd>datamns</nom-bdd>
+				<nom-utilisateur-bdd>root</nom-utilisateur-bdd>
+				<mot-de-passe-utilisateur-bdd>root</mot-de-passe-utilisateur-bdd>
+			</properties>
+		</profile>
+	</profiles>
+
+	<packaging>war</packaging>
+
+<!--	<start-class>com.gestionnaire.dossier.GestionnaireDossierApplication</start-class>-->
+
+
+
 	<build>
+		<resources>
+			<resource>
+				<filtering>true</filtering>
+				<directory>src/main/resources</directory>
+			</resource>
+		</resources>
+
+
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>3.0.0-M6</version>
+				<configuration>
+					<skipTests>${skipTest}</skipTests>
+				</configuration>
+			</plugin>
 		</plugins>
+
+
 	</build>
 
 </project>

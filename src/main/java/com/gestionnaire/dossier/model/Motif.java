@@ -28,13 +28,5 @@ public class Motif {
     List<EvenementDePresence> evenementDePresences = new ArrayList<>();
 
 
-    @SpringBootApplication
-    public static class GestionnaireApplication {
 
-        public static void main(String[] args) {
-
-            SpringApplication.run(GestionnaireApplication.class, args);
-        }
-
-    }
 }

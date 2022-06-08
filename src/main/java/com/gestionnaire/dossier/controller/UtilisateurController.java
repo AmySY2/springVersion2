@@ -6,7 +6,6 @@ import com.gestionnaire.dossier.model.Role;
 import com.gestionnaire.dossier.model.Utilisateur;
 import com.gestionnaire.dossier.security.JwtUtils;
 import com.gestionnaire.dossier.security.UserDetailsServiceSite;
-import com.gestionnaire.dossier.vew.VueRole;
 import com.gestionnaire.dossier.vew.VueUtilisateur;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -143,8 +142,6 @@ public class UtilisateurController {
                 this.utilisateurDao.save(utilisateur);
                 return ResponseEntity.ok(ancienUtilisateur.get());
             }
-
-
             return ResponseEntity.noContent().build();
         }else{
             return  ResponseEntity.status(HttpStatus.FORBIDDEN).build();

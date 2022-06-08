@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service //@Service == @Repository == @Componante
 public class JwtUtils { //pour gerrer les token
@@ -30,10 +31,20 @@ public class JwtUtils { //pour gerrer les token
     public String generateToken(UserDetails userDetails){
 
         UserDetailsSite userDetailsSite = (UserDetailsSite) userDetails;
+
+        String listeDroit = userDetails
+                .getAuthorities()
+                .stream()
+                .map(role -> role.getAuthority())
+                .collect(Collectors.joining(";"));
+
+
         //pour stocker l'id de l'utilisateur
     Map<String, Object> data = new HashMap<>();
     data.put("id", userDetailsSite.getUtilisateur().getId());
     data.put("identifiant", userDetailsSite.getUtilisateur().getIdentifiant());
+    data.put("roles", listeDroit);
+
 
 
 

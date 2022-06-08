@@ -75,7 +75,7 @@ public class SecuriteSite extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/connexion").permitAll()
-                .antMatchers("/inscription", "/liste-utilisateur").permitAll()
+                .antMatchers("/inscription", "/").permitAll()
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .antMatchers("/gestionnaire_dossier/**").hasRole("GESTINNAIRE_ADMMINISTRATIF")
                 .antMatchers("/gesonnaire_presence/**").hasRole("GESTINNAIRE_ABSENCE_RETARD")
@@ -99,4 +99,6 @@ public class SecuriteSite extends WebSecurityConfigurerAdapter {
         source.registerCorsConfiguration("/**", maConfiguration);
         return source;
     }
+
+
 }

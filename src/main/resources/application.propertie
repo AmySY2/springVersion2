@@ -1,0 +1,22 @@
+#spring.datasource.url=jdbc:mysql://localhost:3306/adminmnsperso?timezone=UTC&createDatabaseIfNotExist=true
+#spring.datasource.username=moseb
+#spring.datasource.password=tototeur57
+#secret=azerty123
+
+#spring.datasource.url=jdbc:mysql://@dbHost@:@dbPort@/@dbName@?timezone=UTC&createDatabaseIfNotExist=@dbCreateDatabaseIfNotExist@
+#spring.datasource.username=@login@
+#spring.datasource.password=@password@
+#secret=@secret@
+
+spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5InnoDBDialect
+#spring.jpa.hibernate.ddl-auto = create
+
+#spring.jpa.generate-ddl=true
+#spring.sql.init.mode=ALWAYS
+#spring.sql.init.platform=mysql
+#spring.jpa.defer-datasource-initialization=true
+
+#spring.security.user.name=
+#spring.security.user.password=
+
+spring.profiles.active=prod

@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class AccueilController {
 
-    @GetMapping("/accueil")
+    @GetMapping("/")
     public String hello(){
         return "Serveur SPRING OK" ;
     }

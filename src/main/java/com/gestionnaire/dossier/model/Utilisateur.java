@@ -41,6 +41,8 @@ public class Utilisateur {
 
     private String motDePasse;
 
+    private String profilImage;
+
 
     public Utilisateur() {
     }
